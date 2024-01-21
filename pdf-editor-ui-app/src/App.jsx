@@ -66,30 +66,30 @@ function App() {
   // for PDFTextFields in pdf
   const inputFields = responseData?.specificFieldNameArray.slice(0, 15).map((value, index) => (
     <div key={index}>
-      <label htmlFor={`input-${index}`}>{`${value}`}</label>
+      <label htmlFor={`input-${index}`}>{`${value} : `}</label>
       <input type="text" id={`input-${index}`} onChange={(event) => handleChange(event, index)} />
     </div>
   ));
 
   // For PDFRadioFroups in the PDF
   const radioGroup = responseData?.specificFieldNameArray?.slice(15).map((value, index) => (
-    <div key={index}>
-      <label htmlFor={`radio-${index}`}>{`${value}`}</label>
+    <div className='make-flex' key={index}>
+      <label htmlFor={`radio-${index}`}>{`${value} : `}</label>
       <div>
-        <input type="radio" id={`radio-${index}-YES`} name={`radio-${index}`} value="YES" onChange={(event) => handleChange(event, index+16)}/>
         <label htmlFor={`radio-${index}-YES`}>YES</label>
+        <input type="radio" id={`radio-${index}-YES`} name={`radio-${index}`} value="YES" onChange={(event) => handleChange(event, index+16)}/>
       </div>
       <div>
-        <input type="radio" id={`radio-${index}-NO`} name={`radio-${index}`} value="NO" onChange={(event) => handleChange(event, index+16)}/>
         <label htmlFor={`radio-${index}-NO`}>NO</label>
+        <input type="radio" id={`radio-${index}-NO`} name={`radio-${index}`} value="NO" onChange={(event) => handleChange(event, index+16)}/>
       </div>
       <div>
-        <input type="radio" id={`radio-${index}-UNKNOWN`} name={`radio-${index}`} value="UNKNOWN" onChange={(event) => handleChange(event, index+16)}/>
         <label htmlFor={`radio-${index}-UNKNOWN`}>UNKNOWN</label>
+        <input type="radio" id={`radio-${index}-UNKNOWN`} name={`radio-${index}`} value="UNKNOWN" onChange={(event) => handleChange(event, index+16)}/>
       </div>
       <div>
-        <input type="radio" id={`radio-${index}-NA`} name={`radio-${index}`} value="NA" onChange={(event) => handleChange(event, index+16)}/>
         <label htmlFor={`radio-${index}-NA`}>NA</label>
+        <input type="radio" id={`radio-${index}-NA`} name={`radio-${index}`} value="NA" onChange={(event) => handleChange(event, index+16)}/>
       </div>
     </div>
   ));
