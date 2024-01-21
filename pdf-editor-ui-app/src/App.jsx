@@ -64,32 +64,32 @@ function App() {
   };
 
   // for PDFTextFields in pdf
-  const inputFields = responseData?.specificFieldNameArray.slice(0, 15).map((value, index) => (
+  const inputFields = responseData?.specificFieldNameArray.slice(0, 16).map((value, index) => (
     <div key={index}>
       <label htmlFor={`input-${index}`}>{`${value} : `}</label>
-      <input type="text" id={`input-${index}`} onChange={(event) => handleChange(event, index)} />
+      <input type="text" id={`input-${index}`} defaultValue={responseData?.specificFieldNameValueArray?.[index]} onChange={(event) => handleChange(event, index)} />
     </div>
   ));
 
   // For PDFRadioFroups in the PDF
-  const radioGroup = responseData?.specificFieldNameArray?.slice(15).map((value, index) => (
+  const radioGroup = responseData?.specificFieldNameArray?.slice(16).map((value, index) => (
     <div className='make-flex' key={index}>
       <label htmlFor={`radio-${index}`}>{`${value} : `}</label>
       <div>
         <label htmlFor={`radio-${index}-YES`}>YES</label>
-        <input type="radio" id={`radio-${index}-YES`} name={`radio-${index}`} value="YES" onChange={(event) => handleChange(event, index+16)}/>
+        <input type="radio" id={`radio-${index}-YES`} name={`radio-${index}`} value="YES" defaultChecked={responseData?.specificFieldNameValueArray?.[index]} onChange={(event) => handleChange(event, index+16)}/>
       </div>
       <div>
         <label htmlFor={`radio-${index}-NO`}>NO</label>
-        <input type="radio" id={`radio-${index}-NO`} name={`radio-${index}`} value="NO" onChange={(event) => handleChange(event, index+16)}/>
+        <input type="radio" id={`radio-${index}-NO`} name={`radio-${index}`} value="NO" defaultChecked={responseData?.specificFieldNameValueArray?.[index]} onChange={(event) => handleChange(event, index+16)}/>
       </div>
       <div>
         <label htmlFor={`radio-${index}-UNKNOWN`}>UNKNOWN</label>
-        <input type="radio" id={`radio-${index}-UNKNOWN`} name={`radio-${index}`} value="UNKNOWN" onChange={(event) => handleChange(event, index+16)}/>
+        <input type="radio" id={`radio-${index}-UNKNOWN`} name={`radio-${index}`} value="UNKNOWN" defaultChecked={responseData?.specificFieldNameValueArray?.[index]} onChange={(event) => handleChange(event, index+16)}/>
       </div>
       <div>
         <label htmlFor={`radio-${index}-NA`}>NA</label>
-        <input type="radio" id={`radio-${index}-NA`} name={`radio-${index}`} value="NA" onChange={(event) => handleChange(event, index+16)}/>
+        <input type="radio" id={`radio-${index}-NA`} name={`radio-${index}`} value="NA" defaultChecked={responseData?.specificFieldNameValueArray?.[index]} onChange={(event) => handleChange(event, index+16)}/>
       </div>
     </div>
   ));
@@ -98,8 +98,8 @@ function App() {
     <>
       {/* buttons to load and submit pdf form */}
       <div>
-        <button class='formate-buttons' onClick={fetchApiData}>Load</button>
-        <button class='formate-buttons' onClick={handleSubmit}>Submit</button>
+        <button className='formate-buttons' onClick={fetchApiData}>Load</button>
+        <button className='formate-buttons' onClick={handleSubmit}>Submit</button>
       </div>
 
       {/* it will load only when responseData have elements */}
