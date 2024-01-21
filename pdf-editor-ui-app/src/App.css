@@ -41,6 +41,11 @@
   color: #888;
 }
 
+.formate-buttons{
+  margin: 40px;
+  border: 1px solid black;
+}
+
 .make-flex{
   display: flex;
 }

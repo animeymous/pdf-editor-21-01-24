@@ -98,8 +98,8 @@ function App() {
     <>
       {/* buttons to load and submit pdf form */}
       <div>
-        <button onClick={fetchApiData}>Load</button>
-        <button onClick={handleSubmit}>Submit</button>
+        <button class='formate-buttons' onClick={fetchApiData}>Load</button>
+        <button class='formate-buttons' onClick={handleSubmit}>Submit</button>
       </div>
 
       {/* it will load only when responseData have elements */}
